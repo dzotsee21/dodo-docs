@@ -531,24 +531,28 @@ DodoPayments.Initialize({
 3. **骨架状态**：在 `checkout.opened` 事件触发之前，在您的容器中显示加载指示器。
 4. **清理**：当您的组件卸载时调用 `DodoPayments.Checkout.close()` 以清理 iframe 和事件监听器。
 
+<Info>
+对于深色模式的实现，建议使用 `#0d0d0d` 作为背景色，以便与内联结账框架实现最佳的视觉融合。
+</Info>
+
 ## 故障排除
 
 <AccordionGroup>
 <Accordion title="结账框架未出现">
 - 验证 `elementId` 是否与实际存在于 DOM 中的 `id` 的 `div` 匹配。
-- 确保 `displayType: 'inline'` 被传递给 `Initialize`。
+- 确保 `displayType: 'inline'` 已传递给 `Initialize`。
 - 检查 `checkoutUrl` 是否有效。
 </Accordion>
 
-<Accordion title="税费未在我的 UI 中更新">
+<Accordion title="税费未在我的用户界面中更新">
 - 确保您正在监听 `checkout.breakdown` 事件。
-- 只有在用户在结账框架中输入有效的国家和邮政编码后，税费才会被计算。
+- 税费仅在用户在结账框架中输入有效的国家和邮政编码后计算。
 </Accordion>
 </AccordionGroup>
 
 ## 浏览器支持
 
-Dodo Payments 结账 SDK 支持以下浏览器：
+Dodo Payments Checkout SDK 支持以下浏览器：
 
 - Chrome（最新）
 - Firefox（最新）
@@ -560,7 +564,7 @@ Dodo Payments 结账 SDK 支持以下浏览器：
 Apple Pay 目前不支持内联结账体验。我们计划在未来的版本中添加对 Apple Pay 的支持。
 </Note>
 
-## 内联与覆盖结账
+## 内联结账与覆盖结账
 
 为您的用例选择合适的结账类型：
 
@@ -569,18 +573,18 @@ Apple Pay 目前不支持内联结账体验。我们计划在未来的版本中�
 | 集成深度 | 完全嵌入页面 | 模态在页面上方 |
 | 布局控制 | 完全控制 | 有限 |
 | 品牌 | 无缝 | 与页面分开 |
-| 实现工作量 | 较高 | 较低 |
+| 实施工作量 | 较高 | 较低 |
 | 最适合 | 自定义结账页面，高转化流程 | 快速集成，现有页面 |
 
 <Tip>
-当您希望最大程度地控制结账体验和无缝品牌时，请使用 **内联结账**。对于快速集成且对现有页面的更改最小，请使用 **覆盖结账**。
+当您希望对结账体验和品牌进行最大控制时，请使用 **内联结账**。对于快速集成且对现有页面的更改最小，请使用 **覆盖结账**。
 </Tip>
 
 ## 相关资源
 
 <CardGroup cols={2}>
 <Card title="覆盖结账" icon="layer-group" href="/developer-resources/overlay-checkout">
-    使用覆盖结账进行快速基于模态的集成。
+    使用覆盖结账进行快速的基于模态的集成。
 </Card>
 
 <Card title="结账会话 API" icon="code" href="/api-reference/checkout-sessions/create">
@@ -588,7 +592,7 @@ Apple Pay 目前不支持内联结账体验。我们计划在未来的版本中�
 </Card>
 
 <Card title="Webhooks" icon="webhook" href="/developer-resources/webhooks">
-    使用 webhooks 处理服务器端支付事件。
+    使用 Webhooks 处理服务器端的支付事件。
 </Card>
 
 <Card title="集成指南" icon="book" href="/developer-resources/integration-guide">
